@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>좋아요</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="root">
+    
+    <!-- route구분 -->
+    <!-- <div v-if="route === 'main'">메인화면</div>
+    <div v-else-if="route === 'sub'">서브화면</div> -->
+
+    <div v-if="liked">좋아요 눌렀음</div>
+    <!-- <div>깍두기</div>     if와 else를 떨어뜨리면 오류생김 -->
+    <!-- <div v-if="liked + 1 === 5">과 같이 js처럼 사용가능 -->
+    <!-- <div v-else-if="liked">좋아요 눌렀음</div> -->
+    <!-- v-else-if도 존재함 -->
+    <button v-else v-on:click="onClickButton">Like</button>
+    <!-- v-else를 붙이면 조건문 성립되면서 button만 보이다가 클릭 시 위에 text만 보임 -->
+    <!-- if/else는 동등한 형제 관계면 영향을 받음. -->
+  </div>
+</body>
+<script>
+  const app = new Vue({
+    el : '#root',
+    // vue는 data 중심으로 사고를 가져야함.
+    data : {
+      liked : false,
+      route : 'main'
+    },
+    methods : {
+      onClickButton(){
+        this.liked = true;
+      }
+    }
+  })
+</script>
+</html>
